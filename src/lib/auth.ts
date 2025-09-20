@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
       eventType: "Credentials Login Failed",
       level: "Warning",
       details: `Reason: ${error.message}`,
-      req,
+      req: req as any,
     });
 
     throw new Error(error.message); // forward error message to frontend

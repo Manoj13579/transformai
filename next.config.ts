@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // add below two ignore build errors in production
   typescript: {
     ignoreBuildErrors: true,
   },

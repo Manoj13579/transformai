@@ -51,20 +51,13 @@ const Login = () => {
   };
 
   const handleGoogleLogin = async () => {
-    try {
-      const response = await signIn("google", { redirect: false });
-      if (!response?.error) {
-        const session = await getSession();
-        if (session?.user.role === "admin") {
-          router.push("/admindashboard");
-        } else {
-          router.push("/userdashboard");
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    await signIn("google", { callbackUrl: "/userdashboard" });
+  } catch (error) {
+    console.error("Google login failed:", error);
+    toast.error("Something went wrong with Google login");
+  }
+};
 
   return (
     <div className="bg-gradient-to-br from-white to-gray-50 w-full h-screen flex items-center justify-center px-6">
