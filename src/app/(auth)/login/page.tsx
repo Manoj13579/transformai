@@ -123,7 +123,7 @@ const Login = () => {
               </div>
             </CardContent>
             <CardFooter className="flex flex-col space-y-2">
-              <Button className="w-full" type="submit" disabled={buttonDisabled}>
+              <Button className="w-full mt-2" type="submit" disabled={buttonDisabled}>
                 Login
               </Button>
               <p className="text-sm text-center">

@@ -159,7 +159,7 @@ const Register = () => {
                 </CardContent>
                 <CardFooter className="flex flex-col">
                   <Button
-                    className={`w-full cursor-pointer`}
+                    className={`w-full cursor-pointer mt-2`}
                     type="submit"
                     disabled={buttonDisabled}
                   >

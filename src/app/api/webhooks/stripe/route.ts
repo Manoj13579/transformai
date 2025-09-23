@@ -135,7 +135,7 @@ These requests are not initiated by a browser, so they are not subject to CORS p
       );
 
       if (!updatedSubscriber) {
-        console.error("webhook check: No subscriber found for customer:", customerId);
+        console.error("No subscriber found for customer:", customerId);
       } else {
         console.log("Subscription cancelled for:", customerId);
         // log for subscription cancelled/deleted
