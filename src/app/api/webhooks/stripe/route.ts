@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   /* Will Stripe Webhook Requests Be Blocked by Cross-Origin Policy?
 The Cross-Origin Resource Sharing (CORS) policy governs how browsers allow web pages to make requests to different origins.
 Nature of Stripe Webhook Requests
-Stripe webhooks are server-to-server HTTP POST requests sent directly from Stripe's servers to your webhook endpoint (e.g., https://your-domain.com/api/webhook/stripe).
+Stripe webhooks are server-to-server HTTP POST requests sent directly from Stripe's servers to your webhook endpoint (e.g., https://your-domain.com/api/webhooks/stripe).
 These requests are not initiated by a browser, so they are not subject to CORS policies. CORS is a browser security mechanism that applies to client-side JavaScript (e.g., fetch or XMLHttpRequest) making cross-origin requests.Since Stripe's requests originate from their servers (not a browser), they bypass CORS entirely. */
   const signature = request.headers.get("Stripe-Signature");
 
@@ -135,7 +135,7 @@ These requests are not initiated by a browser, so they are not subject to CORS p
       );
 
       if (!updatedSubscriber) {
-        console.error("No subscriber found for customer:", customerId);
+        console.error("webhook check: No subscriber found for customer:", customerId);
       } else {
         console.log("Subscription cancelled for:", customerId);
         // log for subscription cancelled/deleted
