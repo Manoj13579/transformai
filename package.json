@@ -20,7 +20,7 @@
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.536.0",
     "mongoose": "^8.16.4",
-    "next": "15.4.2",
+    "next": "15.4.10",
     "next-auth": "^4.24.11",
     "nodemailer": "^6.10.1",
     "openai": "^5.12.2",
