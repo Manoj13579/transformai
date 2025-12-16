@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
      const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. Resume content: \n\n${pdfData.text}`
 
      const response = await ai.chat.completions.create({
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash",
     messages: [
         {
             role: "user",
