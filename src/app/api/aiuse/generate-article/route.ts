@@ -20,20 +20,18 @@ export async function POST(request: NextRequest) {
               );
             }
             const { prompt, length } = await request.json();
+            
 const response = await ai.chat.completions.create({
-    model: "gemini-2.5-flash",
+    model: "gemini-2.5-flash-lite",
     messages: [
         {
             role: "user",
-            content: prompt,
+            content: `${prompt} in ${length} words`,
         },
     ],
     /* When temperature is set to a higher value (e.g., 0.8 - 1.0), the model's responses are more varied, creative, and random. This makes the text generation feel more human-like and diverse.When temperature is set to a lower value (e.g., 0.0 - 0.2), the model's responses will be more deterministic, focused, and predictable, often sticking closely to the most likely next word or phraseThe temperature is set to 0.7, meaning the model is expected to generate fairly balanced, creative but not overly random responses. 
-    
-    max_tokens is a parameter that limits the maximum length of the generated response, in terms of the number of tokens.A token is a chunk of text, which can be a word, part of a word, or even punctuation.
     */
     temperature: 0.7,
-    max_tokens: length,
 });
     
 const content = response.choices[0].message.content;

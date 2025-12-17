@@ -12,7 +12,7 @@ export default function GenerateBlogTitle() {
   const [loading, setLoading] = useState(false);
   const [showCreateAnother, setShowCreateAnother] = useState(false);
 
-  const prompt = `Generate catchy blog titles based on the following article: ${article}`;
+  const prompt = `Generate 10 catchy blog titles based on the following article: ${article}`;
 
   // Fetch user’s previous blog titles
   const getSavedBlogTitles = async () => {

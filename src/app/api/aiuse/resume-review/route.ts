@@ -46,18 +46,17 @@ export async function POST(request: NextRequest) {
      const pdfData = await pdfParse(buffer);
 
 
-     const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. Resume content: \n\n${pdfData.text}`
+    const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement in 250 words. Resume content: \n\n${pdfData.text}`
 
      const response = await ai.chat.completions.create({
-    model: "gemini-2.5-flash",
+    model: "gemini-2.5-flash-lite",
     messages: [
         {
             role: "user",
             content: prompt,
         },
     ],
-    temperature: 0.7,
-    max_tokens: 1000
+    temperature: 0.7
 });
     
 const content = response.choices[0].message.content;
